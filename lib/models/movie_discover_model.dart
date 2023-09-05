@@ -1,0 +1,94 @@
+class MovieDiscoverModel {
+  bool? adult;
+  dynamic backdropPath;
+  List<dynamic>? genreIds;
+  int? id;
+  String? originalLanguage;
+  String? originalTitle;
+  String? overview;
+  int? popularity;
+  dynamic posterPath;
+  String? releaseDate;
+  String? title;
+  bool? video;
+  int? voteAverage;
+  int? voteCount;
+
+  MovieDiscoverModel(
+      {this.adult,
+      this.backdropPath,
+      this.genreIds,
+      this.id,
+      this.originalLanguage,
+      this.originalTitle,
+      this.overview,
+      this.popularity,
+      this.posterPath,
+      this.releaseDate,
+      this.title,
+      this.video,
+      this.voteAverage,
+      this.voteCount});
+
+  MovieDiscoverModel.fromJson(Map<String, dynamic> json) {
+    if (json["adult"] is bool) {
+      adult = json["adult"];
+    }
+    backdropPath = json["backdrop_path"];
+    if (json["genre_ids"] is List) {
+      genreIds = json["genre_ids"] ?? [];
+    }
+    if (json["id"] is int) {
+      id = json["id"];
+    }
+    if (json["original_language"] is String) {
+      originalLanguage = json["original_language"];
+    }
+    if (json["original_title"] is String) {
+      originalTitle = json["original_title"];
+    }
+    if (json["overview"] is String) {
+      overview = json["overview"];
+    }
+    if (json["popularity"] is int) {
+      popularity = json["popularity"];
+    }
+    posterPath = json["poster_path"];
+    if (json["release_date"] is String) {
+      releaseDate = json["release_date"];
+    }
+    if (json["title"] is String) {
+      title = json["title"];
+    }
+    if (json["video"] is bool) {
+      video = json["video"];
+    }
+    if (json["vote_average"] is int) {
+      voteAverage = json["vote_average"];
+    }
+    if (json["vote_count"] is int) {
+      voteCount = json["vote_count"];
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["adult"] = adult;
+    data["backdrop_path"] = backdropPath;
+    if (genreIds != null) {
+      data["genre_ids"] = genreIds;
+    }
+    data["id"] = id;
+    data["original_language"] = originalLanguage;
+    data["original_title"] = originalTitle;
+    data["overview"] = overview;
+    data["popularity"] = popularity;
+    data["poster_path"] = posterPath;
+    data["release_date"] = releaseDate;
+    data["title"] = title;
+    data["video"] = video;
+    data["vote_average"] = voteAverage;
+    data["vote_count"] = voteCount;
+    return data;
+  }
+}
